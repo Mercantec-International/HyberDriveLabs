@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="da">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bil Controller</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+
+      .controller {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      button {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      #forwardBtn {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      #backwardBtn {
+        background-color: #f44336;
+        color: white;
+      }
+
+      #stopBtn {
+        background-color: #ff9800;
+        color: white;
+      }
+
+      button:hover {
+        opacity: 0.9;
+      }
+
+      #status {
+        margin-top: 1rem;
+        padding: 1rem;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+      }
+    </style>
+    <script src="ws.js" defer></script>
+  </head>
+  <body>
+    <div class="controller">
+      <h1>Bil Controller</h1>
+      <div class="buttons">
+        <button id="forwardBtn" onclick="forward()">Kør Frem</button>
+        <button id="backwardBtn" onclick="backward()">Bak</button>
+        <button id="stopBtn" onclick="stop()">Stop</button>
+      </div>
+      <div id="status">Status: Ikke forbundet</div>
+    </div>
+
+    <script>
+      // Opdater status element når WebSocket forbindelse ændres
+      ws.onopen = () => {
+        document.getElementById("status").textContent = "Status: Forbundet";
+        document.getElementById("status").style.backgroundColor = "#e8f5e9";
+      };
+
+      ws.onclose = () => {
+        document.getElementById("status").textContent = "Status: Afbrudt";
+        document.getElementById("status").style.backgroundColor = "#ffebee";
+      };
+
+      ws.onmessage = (event) => {
+        document.getElementById("status").textContent = "Status: " + event.data;
+      };
+    </script>
+  </body>
+</html>

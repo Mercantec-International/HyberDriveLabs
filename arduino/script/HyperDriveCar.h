@@ -4,6 +4,7 @@
 #include <Arduino_MKRIoTCarrier.h>
 #include <SPI.h>
 #include <WiFiNINA.h>
+#include <WebSocketClient.h>
 #include <Ultrasonic.h>
 #include <ArduinoHttpClient.h>
 #include <ArduinoJson.h>
@@ -16,7 +17,8 @@ class HyperDriveCar {
     HttpClient* httpClient;
     WiFiSSLClient wifi;
     WiFiClient client;
-
+    WebSocketClient webSocket;
+    
     float temp;
     float humidity;
     float x, y, z;
@@ -33,12 +35,16 @@ class HyperDriveCar {
 
     int status = WL_IDLE_STATUS;
 
+    const char* wsHost = "localhost";
+    const int wsPort = 7183;
+    const char* wsPath = "/ws";
 
   public:
     void begin();
     void handleTempHumid();
     void handleDistance();
     void handleData();
+    void handleWebSocket();
     String sendData(String body, String action);
     void writeToSD(String input, bool clearSDFile);
     String readFromSD();

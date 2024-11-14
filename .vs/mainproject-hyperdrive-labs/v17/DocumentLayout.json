@@ -1,45 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\",
+  "WorkspaceRootPath": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\jeksn\\documents\\github\\mainproject-hyperdrive-labs\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mags\\documents\\github\\mainproject-hyperdrive-labs\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\jeksn\\documents\\github\\mainproject-hyperdrive-labs\\api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mags\\documents\\github\\mainproject-hyperdrive-labs\\api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\jeksn\\documents\\github\\mainproject-hyperdrive-labs\\api\\migrations\\20241113112935_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mags\\documents\\github\\mainproject-hyperdrive-labs\\api\\migrations\\20241113112935_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\migrations\\20241113112935_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\jeksn\\documents\\github\\mainproject-hyperdrive-labs\\api\\controllers\\carscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mags\\documents\\github\\mainproject-hyperdrive-labs\\api\\controllers\\carscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\controllers\\carscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\jeksn\\documents\\github\\mainproject-hyperdrive-labs\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mags\\documents\\github\\mainproject-hyperdrive-labs\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\jeksn\\documents\\github\\mainproject-hyperdrive-labs\\api\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mags\\documents\\github\\mainproject-hyperdrive-labs\\api\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\context\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\jeksn\\documents\\github\\mainproject-hyperdrive-labs\\api\\models\\rpm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mags\\documents\\github\\mainproject-hyperdrive-labs\\api\\models\\rpm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\rpm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\jeksn\\documents\\github\\mainproject-hyperdrive-labs\\api\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mags\\documents\\github\\mainproject-hyperdrive-labs\\api\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\jeksn\\documents\\github\\mainproject-hyperdrive-labs\\api\\models\\temphumidity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mags\\documents\\github\\mainproject-hyperdrive-labs\\api\\models\\temphumidity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\temphumidity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\jeksn\\documents\\github\\mainproject-hyperdrive-labs\\api\\models\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|c:\\users\\mags\\documents\\github\\mainproject-hyperdrive-labs\\api\\models\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{434C8C0A-C929-4E9B-8EC2-569B3D03B963}|api\\api.csproj|solutionrelative:api\\models\\common.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -60,9 +60,9 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\appsettings.json",
+              "DocumentMoniker": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\appsettings.json",
               "RelativeDocumentMoniker": "api\\appsettings.json",
-              "ToolTip": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\appsettings.json",
+              "ToolTip": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\appsettings.json",
               "RelativeToolTip": "api\\appsettings.json",
               "ViewState": "AgIAAAQAAAAAAAAAAAAqwAgAAAB0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
@@ -73,118 +73,109 @@
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "20241113112935_init.cs",
-              "DocumentMoniker": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Migrations\\20241113112935_init.cs",
+              "DocumentMoniker": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Migrations\\20241113112935_init.cs",
               "RelativeDocumentMoniker": "api\\Migrations\\20241113112935_init.cs",
-              "ToolTip": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Migrations\\20241113112935_init.cs",
+              "ToolTip": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Migrations\\20241113112935_init.cs",
               "RelativeToolTip": "api\\Migrations\\20241113112935_init.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T11:29:36.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T11:29:36.259Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "CarsController.cs",
-              "DocumentMoniker": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Controllers\\CarsController.cs",
+              "DocumentMoniker": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Controllers\\CarsController.cs",
               "RelativeDocumentMoniker": "api\\Controllers\\CarsController.cs",
-              "ToolTip": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Controllers\\CarsController.cs",
+              "ToolTip": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Controllers\\CarsController.cs",
               "RelativeToolTip": "api\\Controllers\\CarsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T11:28:39.698Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T11:28:39.698Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Dockerfile",
-              "DocumentMoniker": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Dockerfile",
+              "DocumentMoniker": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Dockerfile",
               "RelativeDocumentMoniker": "api\\Dockerfile",
-              "ToolTip": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Dockerfile",
+              "ToolTip": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Dockerfile",
               "RelativeToolTip": "api\\Dockerfile",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-11-13T11:22:50.348Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T11:22:50.348Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Program.cs",
               "RelativeDocumentMoniker": "api\\Program.cs",
-              "ToolTip": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Program.cs",
+              "ToolTip": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Program.cs",
               "RelativeToolTip": "api\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T09:52:29.232Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T09:52:29.232Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
               "Title": "AppDBContext.cs",
-              "DocumentMoniker": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Context\\AppDBContext.cs",
+              "DocumentMoniker": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Context\\AppDBContext.cs",
               "RelativeDocumentMoniker": "api\\Context\\AppDBContext.cs",
-              "ToolTip": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Context\\AppDBContext.cs",
+              "ToolTip": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Context\\AppDBContext.cs",
               "RelativeToolTip": "api\\Context\\AppDBContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T10:34:11.373Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T10:34:11.373Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "RPM.cs",
-              "DocumentMoniker": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\RPM.cs",
+              "DocumentMoniker": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\RPM.cs",
               "RelativeDocumentMoniker": "api\\Models\\RPM.cs",
-              "ToolTip": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\RPM.cs",
+              "ToolTip": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\RPM.cs",
               "RelativeToolTip": "api\\Models\\RPM.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T09:15:17.911Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T09:15:17.911Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
               "Title": "Car.cs",
-              "DocumentMoniker": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\Car.cs",
+              "DocumentMoniker": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\Car.cs",
               "RelativeDocumentMoniker": "api\\Models\\Car.cs",
-              "ToolTip": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\Car.cs",
+              "ToolTip": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\Car.cs",
               "RelativeToolTip": "api\\Models\\Car.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T09:15:33.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T09:15:33.326Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "TempHumidity.cs",
-              "DocumentMoniker": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\TempHumidity.cs",
+              "DocumentMoniker": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\TempHumidity.cs",
               "RelativeDocumentMoniker": "api\\Models\\TempHumidity.cs",
-              "ToolTip": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\TempHumidity.cs",
+              "ToolTip": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\TempHumidity.cs",
               "RelativeToolTip": "api\\Models\\TempHumidity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T09:16:10.918Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T09:16:10.918Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "Common.cs",
-              "DocumentMoniker": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\Common.cs",
+              "DocumentMoniker": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\Common.cs",
               "RelativeDocumentMoniker": "api\\Models\\Common.cs",
-              "ToolTip": "C:\\Users\\jeksn\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\Common.cs",
+              "ToolTip": "C:\\Users\\MAGS\\Documents\\GitHub\\mainproject-hyperdrive-labs\\api\\Models\\Common.cs",
               "RelativeToolTip": "api\\Models\\Common.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T09:15:55.269Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T09:15:55.269Z"
             }
           ]
         }

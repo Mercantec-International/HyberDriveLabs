@@ -51,7 +51,6 @@ void HyperDriveCar::handleDistance() {
 
 // Handles reading all data, connection to wifi and sending data to wifi
 void HyperDriveCar::handleData() {
-  // Check if device has wifi connection
   if (!isConnected()) { 
     // Check if a wifi has been saved
     if (SD.exists(fileName)) {
@@ -77,6 +76,7 @@ void HyperDriveCar::handleData() {
     // If connection handle all sensors
     //handleTempHumid();
     handleDistance();
+    handleWebSocket();
     
     delay(100);
   }
@@ -290,4 +290,37 @@ String HyperDriveCar::sendData(String body, String action) {
 // Check if wifi is connected
 bool HyperDriveCar::isConnected() {
   return WiFi.status() == WL_CONNECTED;
+}
+
+void HyperDriveCar::handleWebSocket() {
+  if (isConnected()) {
+    if (!webSocket.connected()) {
+      Serial.println("Forbinder til WebSocket...");
+      if (webSocket.connect(wsHost, wsPath, wsPort)) {
+        Serial.println("Forbundet til WebSocket server");
+      } else {
+        Serial.println("WebSocket forbindelse fejlede");
+        return;
+      }
+    }
+
+    String data;
+    if (webSocket.getData(data)) {
+      Serial.println("Modtaget fra WebSocket: " + data);
+      
+      // Håndter de forskellige kommandoer
+      if (data == "forward") {
+        Serial.println("Kører fremad");
+        // Implementer kode til at køre fremad
+      }
+      else if (data == "backward") {
+        Serial.println("Bakker");
+        // Implementer kode til at bakke
+      }
+      else if (data == "stop") {
+        Serial.println("Stopper");
+        // Implementer kode til at stoppe
+      }
+    }
+  }
 }
