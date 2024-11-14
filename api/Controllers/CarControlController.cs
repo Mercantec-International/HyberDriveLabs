@@ -9,6 +9,7 @@ namespace api.Controllers
     public class CarControlController : ControllerBase
     {
         private readonly ILogger<CarControlController> _logger;
+        private static List<WebSocket> _connectedClients = new List<WebSocket>();
 
         public CarControlController(ILogger<CarControlController> logger)
         {
@@ -23,7 +24,19 @@ namespace api.Controllers
                 _logger.LogInformation("WebSocket forbindelse anmodet");
                 using var webSocket = await HttpContext.WebSockets.AcceptWebSocketAsync();
                 _logger.LogInformation("WebSocket forbindelse accepteret");
-                await HandleCarControl(webSocket);
+
+                // Tilføj klienten til listen
+                _connectedClients.Add(webSocket);
+
+                try
+                {
+                    await HandleCarControl(webSocket);
+                }
+                finally
+                {
+                    // Fjern klienten fra listen når forbindelsen lukkes
+                    _connectedClients.Remove(webSocket);
+                }
             }
             else
             {
@@ -46,43 +59,21 @@ namespace api.Controllers
                 {
                     string command = Encoding.UTF8.GetString(buffer, 0, receiveResult.Count);
                     _logger.LogInformation($"Modtaget kommando: {command}");
-                    string response = "";
 
-                    switch (command.ToLower())
-                    {
-                        case "forward":
-                            response = "Bilen kører fremad";
-                            _logger.LogInformation("Udfører: Kør fremad");
-                            var forwardMsg = Encoding.UTF8.GetBytes("forward");
-                            await webSocket.SendAsync(
-                                new ArraySegment<byte>(forwardMsg),
+                    // Send kommandoen til alle tilsluttede klienter
+                    var message = Encoding.UTF8.GetBytes(command);
+                    var tasks = _connectedClients
+                        .Where(client => client != webSocket && client.State == WebSocketState.Open)
+                        .Select(client =>
+                            client.SendAsync(
+                                new ArraySegment<byte>(message),
                                 WebSocketMessageType.Text,
                                 true,
                                 CancellationToken.None
-                            );
-                            break;
-                        case "backward":
-                            response = "Bilen bakker";
-                            _logger.LogInformation("Udfører: Bak");
-                            break;
-                        case "stop":
-                            response = "Bilen stopper";
-                            _logger.LogInformation("Udfører: Stop");
-                            break;
-                        default:
-                            response = "Ukendt kommando";
-                            _logger.LogWarning($"Ukendt kommando modtaget: {command}");
-                            break;
-                    }
+                            )
+                        );
 
-                    var serverMsg = Encoding.UTF8.GetBytes(response);
-                    await webSocket.SendAsync(
-                        new ArraySegment<byte>(serverMsg, 0, serverMsg.Length),
-                        receiveResult.MessageType,
-                        receiveResult.EndOfMessage,
-                        CancellationToken.None
-                    );
-                    _logger.LogInformation($"Sendt svar: {response}");
+                    await Task.WhenAll(tasks);
 
                     receiveResult = await webSocket.ReceiveAsync(
                         new ArraySegment<byte>(buffer),
@@ -90,7 +81,6 @@ namespace api.Controllers
                     );
                 }
 
-                _logger.LogInformation("WebSocket forbindelse lukkes normalt");
                 await webSocket.CloseAsync(
                     receiveResult.CloseStatus.Value,
                     receiveResult.CloseStatusDescription,
