@@ -1,4 +1,4 @@
-const ws = new WebSocket("wss://localhost:7183/ws");
+const ws = new WebSocket("wss://hyperdrivelabs.onrender.com/ws");
 
 ws.onopen = () => {
   console.log("Forbundet til WebSocket");

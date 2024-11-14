@@ -53,6 +53,13 @@ namespace api.Controllers
                         case "forward":
                             response = "Bilen kører fremad";
                             _logger.LogInformation("Udfører: Kør fremad");
+                            var forwardMsg = Encoding.UTF8.GetBytes("forward");
+                            await webSocket.SendAsync(
+                                new ArraySegment<byte>(forwardMsg),
+                                WebSocketMessageType.Text,
+                                true,
+                                CancellationToken.None
+                            );
                             break;
                         case "backward":
                             response = "Bilen bakker";
