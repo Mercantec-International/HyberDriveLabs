@@ -1,5 +1,4 @@
-
-/api/bin
-/api/obj
-/.vs
-/.vs
+appsettings.Development.json
+bin/
+obj/
+.vs/
