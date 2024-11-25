@@ -35,6 +35,7 @@ void HyperDriveCar::handleTempHumid() {
 
 // Handle distance sensor
 void HyperDriveCar::handleDistance() {
+  /*
   Ultrasonic ultrasonic(A6);
   long distanceInCm = ultrasonic.read();
 
@@ -48,6 +49,7 @@ void HyperDriveCar::handleDistance() {
 
     lastLength = distanceInCm;
   }
+  */
 }
 
 // Handles reading all data, connection to wifi and sending data to wifi
@@ -68,7 +70,7 @@ void HyperDriveCar::handleData() {
       savedPass = savedPass.substring(0, savedPass.indexOf("\""));
 
       // Attempt to connect to wifi
-      connectToWiFi(savedSSID, savedPass);
+        connectToWiFi(savedSSID, savedPass);
     } else {
       // If no connection use accesspoint to get wifi
       updateStatus();
@@ -220,6 +222,9 @@ void HyperDriveCar::setupWebpage() {
 
 // Attempt to connect to wifi with given ssid and password, saves to sd card if connection is made
 void HyperDriveCar::connectToWiFi(String ssid, String password) {
+
+  ssid = "Fibernet-IA01021636";
+  password =   "hjKwucMp";   
 
   Serial.println("Attempting connect with: " + ssid + " and: " + password);
   while (!isConnected()) {
