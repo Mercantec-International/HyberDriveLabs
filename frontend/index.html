@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bil Controller</title>
+    <title>RCWS Car Controller</title>
     <style>
       body {
         display: flex;
@@ -69,24 +69,24 @@
   </head>
   <body>
     <div class="controller">
-      <h1>Bil Controller</h1>
+      <h1>RCWS Car Controller</h1>
       <div class="buttons">
-        <button id="forwardBtn" onclick="forward()">Kør Frem</button>
-        <button id="backwardBtn" onclick="backward()">Bak</button>
+        <button id="forwardBtn" onclick="forward()">Drive Forward</button>
+        <button id="backwardBtn" onclick="backward()">Drive Backward</button>
         <button id="stopBtn" onclick="stop()">Stop</button>
       </div>
-      <div id="status">Status: Ikke forbundet</div>
+      <div id="status">Status: Not connected</div>
     </div>
 
     <script>
       // Opdater status element når WebSocket forbindelse ændres
       ws.onopen = () => {
-        document.getElementById("status").textContent = "Status: Forbundet";
+        document.getElementById("status").textContent = "Status: Connected";
         document.getElementById("status").style.backgroundColor = "#e8f5e9";
       };
 
       ws.onclose = () => {
-        document.getElementById("status").textContent = "Status: Afbrudt";
+        document.getElementById("status").textContent = "Status: Disconnected";
         document.getElementById("status").style.backgroundColor = "#ffebee";
       };
 
