@@ -196,17 +196,17 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
   
   switch (type) {
     case WStype_DISCONNECTED:
-      Serial.println("[WSc] Afbrudt! Forsøger at genoprette forbindelse...");
+      Serial.println("[WSc] Disconnected! Trying to reconnect...");
       break;
       
     case WStype_CONNECTED:
-      Serial.println("[WSc] Forbundet!");
+      Serial.println("[WSc] Connected!");
       // Send en initial besked for at bekræfte forbindelsen
-      webSocket.sendTXT("Arduino klar til kommandoer");
+      webSocket.sendTXT("Arduino ready for commands");
       break;
       
     case WStype_TEXT: {
-      Serial.println("[WSc] TEXT EVENT MODTAGET!");
+      Serial.println("[WSc] TEXT EVENT RECIEVED!");
       // Debug payload som bytes
       Serial.print("[WSc] Payload bytes: ");
       for(size_t i=0; i<length; i++) {
@@ -217,69 +217,69 @@ void webSocketEvent(WStype_t type, uint8_t *payload, size_t length) {
 
       // Debug payload som string
       String command = String((char *)payload);
-      Serial.print("[WSc] Payload længde: ");
+      Serial.print("[WSc] Payload length: ");
       Serial.println(length);
-      Serial.print("[WSc] Rå payload: '");
+      Serial.print("[WSc] Raw payload: '");
       Serial.print(command);
       Serial.println("'");
       
       // Trim whitespace og konverter til lowercase for bedre sammenligning
       command.trim();
       command.toLowerCase();
-      Serial.print("[WSc] Behandlet kommando: '");
+      Serial.print("[WSc] Handeled command: '");
       Serial.print(command);
       Serial.println("'");
       
       if (command == "forward") {
-        Serial.println("[WSc] ✓ Matcher 'forward'");
-        Serial.println("Udfører: Kør fremad");
+        Serial.println("[WSc] ✓ Matches 'forward'");
+        Serial.println("Executing: Drive forward");
         driveForward();
       }
       else if (command == "backward") {
-        Serial.println("[WSc] ✓ Matcher 'backward'");
-        Serial.println("Udfører: Bak");
+        Serial.println("[WSc] ✓ Matches 'backward'");
+        Serial.println("Executing: Backward");
       }
       else if (command == "stop") {
-        Serial.println("[WSc] ✓ Matcher 'stop'");
-        Serial.println("Udfører: Stop");
+        Serial.println("[WSc] ✓ Matches 'stop'");
+        Serial.println("Executing: Stop");
         stopMotors();
       } else {
-        Serial.println("[WSc] ✗ Ingen match fundet");
-        Serial.println("Kommando ikke genkendt!");
+        Serial.println("[WSc] ✗ No match found");
+        Serial.println("Commando not recognized!");
       }
       break;
     }
     
     case WStype_BIN:
-      Serial.println("[WSc] Binær besked modtaget (ignoreret)");
+      Serial.println("[WSc] Binary message recieved (ignored)");
       break;
       
     case WStype_FRAGMENT_TEXT_START:
-      Serial.println("[WSc] Fragment text start modtaget");
+      Serial.println("[WSc] Fragment text start recieved");
       break;
       
     case WStype_FRAGMENT_BIN_START:
-      Serial.println("[WSc] Fragment bin start modtaget");
+      Serial.println("[WSc] Fragment bin start recieved");
       break;
       
     case WStype_FRAGMENT:
-      Serial.println("[WSc] Fragment modtaget");
+      Serial.println("[WSc] Fragment recieved");
       break;
       
     case WStype_FRAGMENT_FIN:
-      Serial.println("[WSc] Fragment fin modtaget");
+      Serial.println("[WSc] Fragment fin recieved");
       break;
       
     case WStype_PING:
-      Serial.println("[WSc] Modtaget Ping");
+      Serial.println("[WSc] Recieved Ping");
       break;
 
     case WStype_PONG:
-      Serial.println("[WSc] Modtaget Pong");
+      Serial.println("[WSc] Recieved Pong");
       break;
     
     case WStype_ERROR:
-      Serial.println("[WSc] Fejl! Forsøger at genoprette forbindelse");
+      Serial.println("[WSc] Error! Trying to reconnect");
       break;
   }
 }
