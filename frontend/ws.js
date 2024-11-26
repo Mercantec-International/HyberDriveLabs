@@ -1,4 +1,4 @@
-const ws = new WebSocket("wss://hyperdrivelabs.onrender.com/ws");
+const ws = new WebSocket("wss://car.mercantec.tech/ws");
 
 ws.onopen = () => {
   console.log("Connected to WebSocket");
