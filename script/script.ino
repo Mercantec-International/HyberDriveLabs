@@ -45,7 +45,7 @@ void setup() {
   printWiFiData();
 
   // Updated WebSocket configuration
-  webSocket.beginSSL("hyperdrivelabs.onrender.com", 443, "/ws");
+  webSocket.beginSSL("car.mercantec.tech", 443, "/ws");
   webSocket.onEvent(webSocketEvent);
   webSocket.setReconnectInterval(5000);
   webSocket.enableHeartbeat(15000, 3000, 2);
