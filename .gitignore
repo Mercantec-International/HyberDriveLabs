@@ -1,1 +1,4 @@
 appsettings.Development.json
+/api/bin
+/api/obj
+/.vs
