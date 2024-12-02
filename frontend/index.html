@@ -25,37 +25,68 @@
 
       .buttons {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
         margin-top: 1rem;
+        position: relative;
       }
 
       button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 1rem 2rem;
         font-size: 1.2rem;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background-color 0.3s;
-      }
-
-      #forwardBtn {
-        background-color: #4caf50;
-        color: white;
-      }
-
-      #backwardBtn {
-        background-color: #f44336;
-        color: white;
-      }
-
-      #stopBtn {
-        background-color: #ff9800;
         color: white;
       }
 
       button:hover {
-        opacity: 0.9;
+        opacity: 0.95;
+      }
+
+      .crossCenter {
+        grid-area: 2 / 2;
+        background-color: #333333;
+        width: 105px;
+        height: 105px;
+        margin: 0;
+        border-radius: 15%;
+      }
+
+      .crossTop {
+        grid-area: 1 / 2;
+        background-color: #333333;
+        width: 105px;
+        height: 105px;
+        border-radius: 15%;
+      }
+
+      .crossBottom {
+        grid-area: 3 / 2;
+        background-color: #333333;
+        width: 105px;
+        height: 105px;
+        border-radius: 15%;
+      }
+
+      .crossLeft {
+        grid-area: 2 / 1;
+        background-color: #333333;
+        width: 105px;
+        height: 105px;
+        border-radius: 15%;
+      }
+
+      .crossRight {
+        grid-area: 2 / 3;
+        background-color: #333333;
+        width: 105px;
+        height: 105px;
+        border-radius: 15%;
       }
 
       #status {
@@ -71,9 +102,11 @@
     <div class="controller">
       <h1>RCWS Car Controller</h1>
       <div class="buttons">
-        <button id="forwardBtn" onclick="forward()">Drive Forward</button>
-        <button id="backwardBtn" onclick="backward()">Drive Backward</button>
-        <button id="stopBtn" onclick="stop()">Stop</button>
+        <button class="crossTop" onclick="forward()">Forward</button>
+        <button class="crossBottom" onclick="backward()">Backward</button>
+        <button class="crossLeft" onclick="left()">Left</button>
+        <button class="crossRight" onclick="right()">Right</button>
+        <button class="crossCenter" onclick="stop()">Stop</button>
       </div>
       <div id="status">Status: Not connected</div>
     </div>

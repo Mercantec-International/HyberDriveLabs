@@ -23,29 +23,31 @@ ws.onmessage = (event) => {
   document.getElementById("status").textContent = "Status: " + event.data;
 };
 
-function forward() {
+function send(message) {
   if (ws.readyState === WebSocket.OPEN) {
-    ws.send("forward");
+    ws.send(message);
   } else {
     console.error("WebSocket is not connected");
     document.getElementById("status").textContent = "Status: Not connected";
   }
+}
+
+function forward() {
+  send("forward");
 }
 
 function backward() {
-  if (ws.readyState === WebSocket.OPEN) {
-    ws.send("backward");
-  } else {
-    console.error("WebSocket is not connected");
-    document.getElementById("status").textContent = "Status: Not connected";
-  }
+  send("backward");
 }
 
 function stop() {
-  if (ws.readyState === WebSocket.OPEN) {
-    ws.send("stop");
-  } else {
-    console.error("WebSocket is not connected");
-    document.getElementById("status").textContent = "Status: Not connected";
-  }
+  send("stop");
+}
+
+function left() {
+  send("left");
+}
+
+function right() {
+  send("right");
 }
