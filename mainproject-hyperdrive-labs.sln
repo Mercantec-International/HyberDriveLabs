@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api", "api\api.csproj", "{434C8C0A-C929-4E9B-8EC2-569B3D03B963}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API", "api\API.csproj", "{434C8C0A-C929-4E9B-8EC2-569B3D03B963}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharedModels", "SharedModel\SharedModels.csproj", "{BB9634A8-4E45-48AC-A321-ACD3AFF1CC0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{434C8C0A-C929-4E9B-8EC2-569B3D03B963}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{434C8C0A-C929-4E9B-8EC2-569B3D03B963}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{434C8C0A-C929-4E9B-8EC2-569B3D03B963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB9634A8-4E45-48AC-A321-ACD3AFF1CC0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB9634A8-4E45-48AC-A321-ACD3AFF1CC0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB9634A8-4E45-48AC-A321-ACD3AFF1CC0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB9634A8-4E45-48AC-A321-ACD3AFF1CC0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

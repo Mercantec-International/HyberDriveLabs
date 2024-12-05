@@ -1,0 +1,5 @@
+C:\Users\mads020n\Source\Repos\HyberDriveLabs\SharedModel\obj\Debug\net8.0\SharedModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mads020n\Source\Repos\HyberDriveLabs\SharedModel\obj\Debug\net8.0\SharedModel.AssemblyInfoInputs.cache
+C:\Users\mads020n\Source\Repos\HyberDriveLabs\SharedModel\obj\Debug\net8.0\SharedModel.AssemblyInfo.cs
+C:\Users\mads020n\Source\Repos\HyberDriveLabs\SharedModel\obj\Debug\net8.0\SharedModel.csproj.CoreCompileInputs.cache
+C:\Users\mads020n\Source\Repos\HyberDriveLabs\SharedModel\obj\Debug\net8.0\SharedModel.sourcelink.json

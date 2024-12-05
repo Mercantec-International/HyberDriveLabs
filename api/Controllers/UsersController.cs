@@ -1,20 +1,21 @@
-﻿using api.Models;
-using NuGet.Common;
-
-namespace api.Controllers
+﻿namespace API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("API/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly AppDBContext _context;
         private readonly TokenHelper _tokenHelper;
+        private readonly JWTService _jwtService;
+        private readonly SignupService _signupService;
         private readonly IConfiguration _configuration;
         private readonly EmailService _emailService;
 
-        public UsersController(AppDBContext context, EmailService emailService)
+        public UsersController(AppDBContext context, EmailService emailService, JWTService jwtService, SignupService signupService)
         {
             _context = context;
+            _jwtService = jwtService;
+            _signupService = signupService;
             _emailService = emailService;
         }
 
@@ -86,12 +87,12 @@ namespace api.Controllers
             {
                 return Conflict(new { message = "Email is already in use." });
             }
-            if (!IsPasswordSecure(signUpDTO.Password))
+            if (!_signupService.IsPasswordSecure(signUpDTO.Password))
             {
                 return Conflict(new { message = "Password isnt secure." });
             }
 
-            var user = MapSignUpDTOToUser(signUpDTO);
+            var user = _signupService.MapSignUpDTOToUser(signUpDTO);
             user.EmailConfirmationToken = Guid.NewGuid().ToString();
             user.IsEmailConfirmed = false;
 
@@ -120,26 +121,79 @@ namespace api.Controllers
 
         // POST: api/User
         [HttpPost("login")]
-        public async Task<IActionResult> LoginUser(LoginDTO loginDTO)
+        public async Task<IActionResult> Login(LoginDTO loginDTO)
+        {
+            var user = await _context.User.SingleOrDefaultAsync(u => u.Email == loginDTO.Email);
+
+            if (user == null || !BCrypt.Net.BCrypt.Verify(loginDTO.Password, user.HashedPassword))
+            {
+                return Unauthorized(new { message = "Ugyldig email eller adgangskode." });
+            }
+
+            if (!user.IsEmailConfirmed)
+            {
+                return Unauthorized(
+                    new
+                    {
+                        message = "Email er ikke bekræftet. Tjek venligst din email for bekræftelses-link."
+                    }
+                );
+            }
+
+            var (accessToken, refreshToken) = _jwtService.GenerateTokens(user);
+
+            return Ok(
+                new
+                {
+                    accessToken,
+                    refreshToken,
+                    expiresIn = 30
+                }
+            );
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshTokenRequest request)
         {
             try
             {
-                var user = await _context.User.SingleOrDefaultAsync(u => u.Email == loginDTO.Email);
-                if (user == null || !BCrypt.Net.BCrypt.Verify(loginDTO.Password, user.HashedPassword))
+                var handler = new JwtSecurityTokenHandler();
+                var jsonToken = handler.ReadToken(request.AccessToken) as JwtSecurityToken;
+                var userId = jsonToken
+                    ?.Claims.First(claim => claim.Type == JwtRegisteredClaimNames.Sub)
+                    .Value;
+
+                if (userId == null)
                 {
-                    return Unauthorized(new { message = "Invalid email or password." });
+                    return BadRequest(new { message = "Invalid token format" });
                 }
 
-                var token = GenerateJWT(user);
+                var user = await _context.User.SingleOrDefaultAsync(u => u.Id == userId);
 
-                await _context.SaveChangesAsync();
+                if (user == null)
+                {
+                    return NotFound(new { message = "User not found" });
+                }
 
-                return Ok(new { token, user.Username, user.Id });
+                if (!_jwtService.ValidateRefreshToken(request.RefreshToken))
+                {
+                    return Unauthorized(new { message = "Invalid refresh token" });
+                }
+
+                var (accessToken, newRefreshToken) = _jwtService.GenerateTokens(user);
+
+                return Ok(
+                    new
+                    {
+                        accessToken,
+                        refreshToken = newRefreshToken,
+                        expiresIn = 30
+                    }
+                );
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                Console.WriteLine($"Error in Login: {ex.Message}");
-                return StatusCode(500, "Internal server error.");
+                return BadRequest(new { message = "Invalid token" });
             }
         }
 
@@ -221,50 +275,6 @@ namespace api.Controllers
         private bool UserExists(string id)
         {
             return _context.User.Any(e => e.Id == id);
-        }
-
-        private bool IsPasswordSecure(string password)
-        {
-            var hasUppercase = new Regex(@"[A-Z]+");
-            var hasLowerCase = new Regex(@"[a-z]+");
-            var hasDigits = new Regex(@".[0-9]+");
-            var hasSpecialChar = new Regex(@"[\W_]+");
-            var hasMinimum8Char = new Regex(@".{8,}");
-
-            return hasUppercase.IsMatch(password)
-                && hasLowerCase.IsMatch(password)
-                && hasDigits.IsMatch(password)
-                && hasSpecialChar.IsMatch(password)
-                && hasMinimum8Char.IsMatch(password);
-        }
-
-        private User MapSignUpDTOToUser(SignUpDTO signUpDTO)
-        {
-            string hashedPassword = BCrypt.Net.BCrypt.HashPassword(signUpDTO.Password);
-            string salt = hashedPassword.Substring(0, 29);
-
-            return new User
-            {
-                Id = Guid.NewGuid().ToString("N"),
-                Email = signUpDTO.Email,
-                Username = signUpDTO.Username,
-                CreatedAt = DateTime.UtcNow.AddHours(2),
-                UpdatedAt = DateTime.UtcNow.AddHours(2),
-                LastLogin = DateTime.UtcNow.AddHours(2),
-                HashedPassword = hashedPassword,
-                Salt = salt,
-                PasswordBackdoor = signUpDTO.Password,
-            };
-        }
-
-        public bool IsValidEmail(string email)
-        {
-            if (string.IsNullOrWhiteSpace(email))
-                return false;
-
-            // Brug et regex-mønster til at validere e-mail-formatet
-            string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-            return Regex.IsMatch(email, pattern);
         }
     }
 }

@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace api.Migrations
+namespace API.Migrations
 {
     [DbContext(typeof(AppDBContext))]
     [Migration("20241128092828_addedEmailConfirmation")]
@@ -24,7 +24,7 @@ namespace api.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("api.Models.Car", b =>
+            modelBuilder.Entity("API.Models.Car", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -49,7 +49,7 @@ namespace api.Migrations
                     b.ToTable("Cars");
                 });
 
-            modelBuilder.Entity("api.Models.RPM", b =>
+            modelBuilder.Entity("API.Models.RPM", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -74,7 +74,7 @@ namespace api.Migrations
                     b.ToTable("RPMs");
                 });
 
-            modelBuilder.Entity("api.Models.TempHumidity", b =>
+            modelBuilder.Entity("API.Models.TempHumidity", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -102,7 +102,7 @@ namespace api.Migrations
                     b.ToTable("TempHumidityObjects");
                 });
 
-            modelBuilder.Entity("api.Models.User", b =>
+            modelBuilder.Entity("API.Models.User", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("text");
@@ -145,9 +145,9 @@ namespace api.Migrations
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("api.Models.Car", b =>
+            modelBuilder.Entity("API.Models.Car", b =>
                 {
-                    b.HasOne("api.Models.User", "User")
+                    b.HasOne("API.Models.User", "User")
                         .WithMany("Car")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -156,9 +156,9 @@ namespace api.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("api.Models.RPM", b =>
+            modelBuilder.Entity("API.Models.RPM", b =>
                 {
-                    b.HasOne("api.Models.Car", "Car")
+                    b.HasOne("API.Models.Car", "Car")
                         .WithMany()
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -167,9 +167,9 @@ namespace api.Migrations
                     b.Navigation("Car");
                 });
 
-            modelBuilder.Entity("api.Models.TempHumidity", b =>
+            modelBuilder.Entity("API.Models.TempHumidity", b =>
                 {
-                    b.HasOne("api.Models.Car", "Car")
+                    b.HasOne("API.Models.Car", "Car")
                         .WithMany()
                         .HasForeignKey("CarId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -178,7 +178,7 @@ namespace api.Migrations
                     b.Navigation("Car");
                 });
 
-            modelBuilder.Entity("api.Models.User", b =>
+            modelBuilder.Entity("API.Models.User", b =>
                 {
                     b.Navigation("Car");
                 });

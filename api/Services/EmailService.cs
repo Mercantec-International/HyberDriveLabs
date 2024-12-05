@@ -1,19 +1,12 @@
-﻿using System.Configuration;
-using System.IO;
-using System.Net;
-using System.Net.Mail;
-using System.Web;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages.Manage;
-
-
-public class EmailService
+﻿namespace API.Services
 {
-    private readonly IConfiguration _configuration;
-    private readonly string _templatePath;
-        
-    public EmailService(IConfiguration configuration, IWebHostEnvironment environment)
+
+    public class EmailService
+    {
+        private readonly IConfiguration _configuration;
+        private readonly string _templatePath;
+
+        public EmailService(IConfiguration configuration, IWebHostEnvironment environment)
         {
             _configuration = configuration;
             _templatePath = Path.Combine(
@@ -27,7 +20,7 @@ public class EmailService
         private async Task<string> GetEmailTemplate(string confirmationUrl)
         {
             var assembly = typeof(EmailService).Assembly;
-            var resourceName = "api.Templates.EmailConfirmation.html";
+            var resourceName = "API.Templates.EmailConfirmation.html";
 
             using var stream = assembly.GetManifestResourceStream(resourceName);
             using var reader = new StreamReader(stream);
@@ -41,34 +34,35 @@ public class EmailService
             try
             {
                 string confirmationToken = Guid.NewGuid().ToString();
-                var confirmationUrl = $"https://hyberdrivelabs.onrender.com/api/Users/confirm-email?token={confirmationToken}&email={email}";
+                var confirmationUrl = $"https://hyberdrivelabs.onrender.com/API/Users/confirm-email?token={confirmationToken}&email={email}";
                 var emailBody = await GetEmailTemplate(confirmationUrl);
 
-            var smtpClient = new SmtpClient
-            { 
-                Host = "smtp.gmail.com",
-                Port = 587,
-                UseDefaultCredentials = false,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                Credentials = new NetworkCredential(_configuration["EmailService:Email"] ?? Environment.GetEnvironmentVariable("Email"), _configuration["EmailService:Password"] ?? Environment.GetEnvironmentVariable("Password"))
-            };
+                var smtpClient = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    UseDefaultCredentials = false,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    Credentials = new NetworkCredential(_configuration["EmailService:Email"] ?? Environment.GetEnvironmentVariable("Email"), _configuration["EmailService:Password"] ?? Environment.GetEnvironmentVariable("Password"))
+                };
 
-            var mailMessage = new MailMessage
-            {
-                From = new MailAddress(_configuration["EmailService:Email"] ?? Environment.GetEnvironmentVariable("Email")),
-                Subject = "HyperDrive Labs - Confirm your email address",
-                Body = emailBody,
-                IsBodyHtml = true
-            };
-            mailMessage.To.Add(email);
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress(_configuration["EmailService:Email"] ?? Environment.GetEnvironmentVariable("Email")),
+                    Subject = "HyperDrive Labs - Confirm your email address",
+                    Body = emailBody,
+                    IsBodyHtml = true
+                };
+                mailMessage.To.Add(email);
 
-            await smtpClient.SendMailAsync(mailMessage);
-        }
-        catch (Exception ex)
+                await smtpClient.SendMailAsync(mailMessage);
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine($"Email sending failed: {ex.Message}");
                 throw;
             }
         }
     }
+}

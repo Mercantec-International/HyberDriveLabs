@@ -1,4 +1,4 @@
-﻿namespace api.Services
+﻿namespace API.Services
 {
     public class TokenHelper
     {

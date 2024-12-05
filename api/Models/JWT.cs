@@ -1,4 +1,4 @@
-﻿namespace api.Models
+﻿namespace API.Models
 {
     public class JWT : Common
     {

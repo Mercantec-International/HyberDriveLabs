@@ -1,4 +1,4 @@
-﻿namespace api.Models
+﻿namespace API.Models
 {
     public class User : Common
     {
@@ -20,6 +20,8 @@
         public string RefreshToken { get; set; }
         public DateTime TokenExpiryDate { get; set; }
         public DateTime TokenCreatedDate { get; set; }
+
+        public UserRole Role { get; set; }
 
         public List<Car> Car { get; set; }
     }
@@ -51,5 +53,17 @@
         public string Email { get; set; }
         public string Token { get; set; }
 
+    }
+
+    public enum UserRole
+    {
+        User = 0,
+        Admin = 1
+    }
+
+    public class RefreshTokenRequest
+    {
+        public string RefreshToken { get; set; }
+        public string AccessToken { get; set; }
     }
 }

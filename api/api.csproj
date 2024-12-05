@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Templates\EmailConfirmation.html"/>
+    <EmbeddedResource Include="Templates\EmailConfirmation.html" />
   </ItemGroup>
   
 </Project>
